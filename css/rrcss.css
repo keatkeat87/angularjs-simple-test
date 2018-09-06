@@ -1,0 +1,349 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	width: 1920px;
+	height: 1080px;
+	background-image:url(../images/main-bg.png);
+	overflow: hidden;
+}
+.btn:hover{
+	color: inherit;
+}
+a{
+	color: inherit;
+}
+#main{
+ color: white;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+#main .top{
+width: 1920px;
+ height: 230px;
+	position: relative;
+}
+#main .top .title{
+	padding-top: 80px;
+	padding-bottom: 60px;
+	font-size: 60px;
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+	font-weight: bold;
+	
+}
+body .logo-nas{
+	position: absolute;
+	top: 40px;
+	right: 80px;
+	
+}
+#main .navigator{
+	width: 1920px;
+	margin-top: 60px;
+	
+}
+#main .navigator .left{
+	width: 1055px;
+	margin-left: 245px;
+	margin-right: 37px;
+	display: inline-block;
+	height: 800px;
+	vertical-align: top;
+}
+#main .navigator .left .first-time{
+	width: 350px;
+	height: 455px;
+	background-color:#019aab;
+	margin-right: 40px;
+}
+#main .navigator .left .request-record{
+	width: 660px;
+	height: 455px;
+	background-color: #ff6868;
+}
+#main .navigator .left .search-marriage{
+	width: 505px;
+	height: 252px;
+	background-color: #f7a71d;
+	margin-right: 40px;
+	margin-top: 27px;
+}
+#main .navigator .left .search-school{
+	width: 505px;
+	height: 252px;
+	margin-top: 27px;
+	background-color: #23c9f0;
+}
+#main .navigator .right{
+	width: 350px;
+	display: inline-block;
+	height: 707px;
+	
+}
+#main .navigator .right .payment{
+	width: 100%;
+	height: 240px;
+	background-color: #ff9648;
+	
+}
+#main .navigator .right .collection{
+	width: 100%;
+	height: 240px;
+	background-color: #b04ce6;
+	
+}
+#main .navigator .right .askfor{
+	width: 100%;
+	height: 192px;
+	background-color: #484956;
+	
+}
+#main .navigator .right>a{
+	margin-top: 30px;
+}
+#main .navigator .right>a:nth-child(1){
+	margin-top: 0px;
+}
+#main .navigator .btn{
+	font-size: 37px;
+	text-align: left;
+	padding: 20px;
+	word-break:keep-all;
+	white-space:inherit;
+}
+#main .navigator .btn.first-time,#main .navigator .btn.request-record{
+	font-size: 52px;
+}
+#main .navigator .btn:hover{
+	color:inherit;
+}
+#main .navigator .text{
+	font-weight: bold;
+}
+#main .navigator .logo{
+	margin-top: 15px;
+}
+/*collection page*/
+#collection{
+	color: white;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+#collection .top{
+	height: 200px;
+}
+#collection .top .home-btn,#collection .top .back-btn{
+	margin-left: 50px;
+	margin-top: 50px;
+	display: inline-block;
+}
+#collection .center-content{
+	height: 100%;
+	width: 100%;
+	text-align: center;
+}
+#collection .center-content .title{
+	font-size: 60px;
+}
+#collection .center-content .request-id{
+	font-size: 40px;
+	margin-top: 100px;
+}
+#collection .center-content input{
+	background-color: transparent;
+	font-size: 45px;
+	border: none;
+	border-bottom: 1px solid white;
+	margin-top: 20px;
+}
+#collection .center-content input:focus {
+    outline: none;
+}
+#collection .center-content .next-btn{
+	width: 330px;
+	height: 100px;
+	background-color: #6bab3b;
+	margin-top: 80px;
+	font-size: 30px;
+	padding-top: 25px;
+	font-weight: bold;
+	
+}
+#collection .top .title{
+	position: relative;
+	top: -50px;
+	text-align: center;
+	width: 100%;
+	font-size: 45px;
+}
+#collection .center-content.request-tab{
+	position: relative;
+	padding-left: 85px;
+	
+}
+#collection .center-content.request-tab .tab-gradient{
+	pointer-events: none;
+    width: 1088px;
+    height: 130px;
+    z-index: 99;
+    position: fixed;
+    bottom: 0px;
+    background: -webkit-linear-gradient(
+                    rgba(255, 255, 255, 0) 0%,
+                    rgba(59, 78, 111, 1) 100%
+            );
+            background-image: -moz-linear-gradient(
+                    rgba(255, 255, 255, 0) 0%,
+                    rgba(59, 78, 111, 1) 100%
+            );
+            background-image: -o-linear-gradient(
+                    rgba(255, 255, 255, 0) 0%,
+                     rgba(59, 78, 111, 1) 100%
+            );
+            background-image: linear-gradient(
+                    rgba(255, 255, 255, 0) 0%,
+                     rgba(59, 78, 111, 1) 100%
+            );
+            background-image: -ms-linear-gradient(
+                    rgba(255, 255, 255, 0) 0%,
+                     rgba(59, 78, 111, 1) 100%
+            );
+	
+}
+#collection .center-content.request-tab ul li a{
+	background-color: #2459a9;
+	color: white;
+	width: 245px;
+	height: 55px;
+	font-size: 20px;
+	margin-right: 25px;
+}
+#collection .center-content.request-tab ul li.active a{
+	background-color: #60a5ff;
+}
+#collection .center-content.request-tab .tab-content{
+	text-align: left;
+	width: 1104px;
+	height: 823px;
+	overflow-y:auto;
+	position: relative;
+	
+}
+
+#collection .center-content.request-tab .tab-content::-webkit-scrollbar {
+  width: 10px;
+	
+ 
+}
+#collection .center-content.request-tab .tab-content::-webkit-scrollbar-track {
+  background-color:rgba(0,0,0,0.40);
+  border-radius: 10px;	
+}
+#collection .center-content.request-tab .tab-content::-webkit-scrollbar-thumb {
+  background-color: white; 
+   border-radius: 20px;	
+	height: 20px;
+}
+
+#collection .center-content.request-tab .tab-content .tab-pane h3{
+	font-size: 26px;
+	font-weight: bold;
+	padding-bottom: 20px;
+}
+#collection .center-content.request-tab .tab-content .request-box{
+	width: 1068px;
+	height: 176px;
+	background-color:rgba(0,0,0,0.40);
+	margin-bottom: 30px;
+	
+}
+#collection .center-content.request-tab .tab-content .request-box>div{
+	display: inline-block;
+   vertical-align: top;
+	padding: 30px;
+	font-size: 20px;
+}
+#collection .center-content.request-tab .tab-content .request-box .item-no{
+	width: 245px;
+	font-weight: bold;
+}
+#collection .center-content.request-tab .tab-content .request-box .item-name{
+	width: 544px;
+}
+#collection .center-content.request-tab .tab-content .request-box .item-name .name{
+	font-size: 26px;
+	font-weight: bold;
+}
+#collection .center-content.request-tab .tab-content .request-box .item-name .format{
+	font-style: italic;
+}
+#collection .center-content.request-tab .tab-content .request-box .item-status{
+width: 245px;
+font-style: italic;	
+color: #288a23;
+}
+#collection .summary{
+	width: 780px;
+	height: 880px;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	
+}
+#collection .summary h3{
+	font-size: 35px;
+	font-weight: bold;
+	border-bottom: 1px solid white;
+	margin: 0 auto;
+	width: 400px;
+	padding-bottom: 8px;
+}
+#collection .summary .collect-item,#collection .summary .payment-item{
+	width: 577px;
+	min-height: 108px;
+	border: 1px solid white;
+	margin: 30px auto;
+	text-align: left;
+	font-size: 20px;
+	padding-left: 20px;
+}
+#collection .summary .payment-item{
+	margin-bottom: 10px;
+}
+#collection .summary .locker,#collection .summary .bill{
+	padding-left: 30px;
+	padding-top: 10px;
+}
+#collection .summary .locker>div,#collection .summary .bill>div{
+	display: inline-block;
+    text-align: right;
+	width: 48%;
+}
+#collection .summary .locker .locker-num,#collection .summary .bill .locker-num{
+	text-align: left;
+}
+#collection .summary .collect-pay{
+	position: absolute;
+	right: 80px;
+	bottom: 50px;
+	width: 272px;
+	height: 80px;
+	background-color: #6bab3b;
+	font-size: 24px;
+	font-weight: bold;
+	padding-top: 20px;
+}
+#collection .pending-payment .total{
+	font-size: 20px;
+	text-align: right;
+	width: 577px;
+	margin: 0 auto;
+}
+#collection .pending-payment .total p{
+	display: inline-block;
+	width: 200px;
+	padding-right: 15px;
+}

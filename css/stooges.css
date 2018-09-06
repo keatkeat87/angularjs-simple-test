@@ -1,0 +1,160 @@
+* {
+  -webkit-user-select: text;
+     -moz-user-select: text;
+      -ms-user-select: text;
+          user-select: text;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.mt0 {
+  margin-top: 0 !important;
+}
+
+@media (max-width: 991px) {
+  .float-md-left {
+    float: left;
+  }
+}
+
+[ui-view],
+.main-contant {
+  min-height: calc(100vh - 346px);
+}
+
+.top-header {
+  position: relative;
+}
+
+.top-header .navbar-toggle {
+  vertical-align: top;
+  float: left;
+  margin-top: 30px;
+}
+
+.top-header .navbar-toggle .icon-bar {
+  background: black;
+  width: 28px;
+  height: 4px;
+}
+
+.top-header .nas-logo {
+  vertical-align: top;
+}
+
+@media (max-width: 767px) {
+  .top-header .nas-logo img {
+    width: 154px;
+  }
+}
+
+.top-header .sing-gov {
+  vertical-align: top;
+}
+
+@media (max-width: 767px) {
+  .top-header .sing-gov {
+    width: auto;
+    padding-top: 20px;
+  }
+}
+
+#erequest {
+  padding: 0;
+}
+
+.navbar-nav .open .dropdown-menu > li > a {
+  padding-left: 40px;
+}
+
+.navbar-nav > li {
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0);
+  width: 20%;
+}
+
+.navbar-nav > li.active > a {
+  color: #808080;
+}
+
+.navbar-nav > li:first-child:before {
+  content: none;
+}
+
+.navbar-nav > li:before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 1px;
+  left: 0;
+  -webkit-transform: rotate(30deg);
+          transform: rotate(30deg);
+  background: #a7a7a7;
+}
+
+.navbar-nav > li > a {
+  height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.navbar-nav > li > a:hover {
+  color: #808080;
+}
+
+@media (max-width: 767px) {
+  .navbar-nav > li {
+    width: 100%;
+    text-align: left;
+    padding-left: 20px;
+  }
+  .navbar-nav > li:before {
+    content: none;
+  }
+  .navbar-nav > li > a {
+    display: block;
+    height: auto;
+  }
+  .navbar-nav > li > a:hover {
+    color: white;
+  }
+}
+
+.navbar {
+  min-height: 0;
+  border: none;
+}
+
+@media (max-width: 991px) {
+  .guide .faq-color {
+    border-right: none;
+    border-top: 1px solid white;
+  }
+}
+
+@media (max-width: 767px) {
+  #recaptcha {
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+    -webkit-transform-origin: left;
+            transform-origin: left;
+  }
+}
+
+#request-sent .des {
+  max-width: 650px;
+  margin: auto;
+}
+
+#login .form-group.has-error input {
+  border: 1px solid #a94442;
+}

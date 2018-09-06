@@ -1,0 +1,6 @@
+<form name="myForm" >
+     <input type="text" name="creditCard" ng-model="creditCard" credit-card data-credit-card-type="{{ creditCardType }}" />
+     <pre>{{ myForm.creditCard.$invalid }}</pre>
+     <pre>{{ creditCard }}</pre>
+     <input type="text" name="creditCardType" ng-model="creditCardType" />
+</form>
