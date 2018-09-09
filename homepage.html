@@ -30,17 +30,24 @@
     data-max-date="{{ maxToDate }}" > -->
 
 <form name="myForm">
-    <input type="text" size="8" ng-model="formData.start" name="start" max-duration="{{ '00:50:00' }}" data-time-format="HH:mm:ss" data-time-type="string" data-autoclose="0" data-minute-step="1" data-minute-step="1" data-second-step="1" data-round-display="false" required bs-timepicker>
+    <!-- <input type="text" size="8" ng-model="formData.start" name="start" max-duration="{{ '00:50:00' }}" data-time-format="HH:mm:ss" data-time-type="string" data-autoclose="0" data-minute-step="1" data-minute-step="1" data-second-step="1" data-round-display="false" required bs-timepicker>
 
-    <input type="text" size="8" ng-model="formData.end" name="end" min-duration="{{ formData.start }}" max-duration="{{ '00:50:00' }}" data-time-format="HH:mm:ss" data-time-type="string" data-autoclose="0" data-minute-step="1" data-minute-step="1" data-second-step="1" data-round-display="false" required bs-timepicker>
+    <input type="text" size="8" ng-model="formData.end" name="end" min-duration="{{ formData.start }}" max-duration="{{ '00:50:00' }}" data-time-format="HH:mm:ss" data-time-type="string" data-autoclose="0" data-minute-step="1" data-minute-step="1" data-second-step="1" data-round-display="false" required bs-timepicker> -->
+
+    <input type="text" size="8" ng-model="formData.start" name="start" data-time-format="HH:mm:ss" data-time-type="string" data-autoclose="0" data-minute-step="1" data-minute-step="1" data-second-step="1" data-round-display="false" required bs-timepicker>
+
+    <input type="text" size="8" ng-model="formData.end" name="end" data-time-format="HH:mm:ss" data-time-type="string" data-autoclose="0" data-minute-step="1" data-minute-step="1" data-second-step="1" data-round-display="false" required bs-timepicker>
 
     
 </form>
 <pre>{{ formData | json }}</pre>
 <pre>date : {{ myForm.$error.date }}</pre>
 <pre>required : {{ myForm.$error.required }}</pre>
-<pre>over maxduration : {{ myForm.$error.maxDuration }}</pre>
-<pre>over minDuration : {{ myForm.$error.minDuration }}</pre>
+<pre>start : {{ myForm.$error.minDate }}</pre>
+<pre>end : {{ myForm.$error.maxDate }}</pre>
+
+<!-- <pre>over maxduration : {{ myForm.$error.maxDuration }}</pre>
+<pre>over minDuration : {{ myForm.$error.minDuration }}</pre> -->
 
 <!-- data-min-time="00:00:00" data-max-time="24:00:00" -->
 
