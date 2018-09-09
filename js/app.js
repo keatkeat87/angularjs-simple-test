@@ -73,22 +73,22 @@
             restrict: 'A',
             require: 'ngModel',
             link: function ($scope, $elem, $attrs, ngModel) {
- 
+
                 $attrs.$observe('maxDuration', function (value) {
                     ngModel.$validate();
                 });
 
                 ngModel.$validators.maxDuration = function (modelValue, viewValue) {
-                    if (ngModel.$isEmpty(modelValue)) return true;                    
+                    if (ngModel.$isEmpty(modelValue)) return true;
                     var maxDuration = $attrs.maxDuration;
-                    if(!maxDuration) return true;
+                    if (!maxDuration) return true;
                     var duration = modelValue;
                     maxDuration = moment.duration(maxDuration);
                     duration = moment.duration(modelValue);
                     if (duration.clone().subtract(maxDuration).asMilliseconds() >= 0) {
                         return false;
                     }
-                    return true; 
+                    return true;
                 };
             }
         };
@@ -99,27 +99,27 @@
             restrict: 'A',
             require: 'ngModel',
             link: function ($scope, $elem, $attrs, ngModel) {
- 
+
                 $attrs.$observe('minDuration', function (value) {
                     ngModel.$validate();
                 });
 
                 ngModel.$validators.minDuration = function (modelValue, viewValue) {
-                    if (ngModel.$isEmpty(modelValue)) return true;            
+                    if (ngModel.$isEmpty(modelValue)) return true;
                     var minDuration = $attrs.minDuration;
-                    if(!minDuration) return true;
+                    if (!minDuration) return true;
                     var duration = modelValue;
                     minDuration = moment.duration(minDuration);
                     duration = moment.duration(modelValue);
                     if (duration.clone().subtract(minDuration).asMilliseconds() <= 0) {
                         return false;
                     }
-                    return true; 
+                    return true;
                 };
             }
         };
     });
-     
+
 
     app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
         $locationProvider.hashPrefix('');
@@ -130,12 +130,15 @@
                 templateUrl: 'homepage.html',
                 controller: function ($scope, $state) {
 
-                    $scope.dada = Date.UTC(1970,0,0,0,0,1);
+                    $scope.dada = Date.UTC(1970, 0, 0, 0, 0, 1);
                     $scope.formData = {
                         start: '00:00:00',
-                        end: '00:00:00'
+                        end: '00:00:00',
+                        // start: '',
+                        // end: '',
                     }
-                    $scope.convert = function(str){    
+                    $scope.maxDate = new Date(1970, 0, 0, 0, 0, 2);
+                    $scope.convert = function (str) {
 
                         console.log('da', moment.utc(moment.duration(str).asMilliseconds()).format('HH:mm:ss'));
                         console.log(moment.utc(moment.duration(str).asMilliseconds()).valueOf());
