@@ -90,12 +90,11 @@
                     }
 
                     setTimeout(() => {
-                        console.log('done');
-                        // $('#dLabel').dropdown();
-                        // $('#dLabel').on('show.bs.dropdown', function () {
+                        // $('#mark').on('hide.bs.dropdown', function () {
                         //     console.log('dada');
                         // });                        
                     }, 1000);
+                    
 
                 }
             })
@@ -192,4 +191,13 @@
 
     });
 
+    app.directive('readMore', function () {
+        return {
+            restrict: 'A',
+            link: function(scope, element, attributes){
+                var elementHeight = element.height();
+                angular.element(element).addClass('hello');
+            }
+        }
+    })
 }());

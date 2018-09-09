@@ -23,9 +23,8 @@
 
 
 
- 
 
-  <div class="dropdown">
+  <div class="dropdown" id="mark">
     <a id="dLabel" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
       Dropdown trigger
       <span class="caret"></span>
@@ -42,3 +41,12 @@
 
 
 <!-- <div ng-click="go()" >gogo</div> -->
+
+
+{{clicked}}
+<p class="recTitle ellipsis" ng-class="{'ellipsis': clicked }" >{{item.RecTitle}}</p>
+<span ng-click="clicked = true" class="readMore">true</span>
+<span ng-click="clicked = false" class="readMore">false</span>
+ 
+ <div class="readMore" read-more ></div>
+
