@@ -22,22 +22,53 @@
 </form> -->
 
 
+<!-- <input type="text" class="form-control" ng-model="date" ng-change="onToDateChange()" name="To_Date" 
+    bs-datepicker 
+    data-autoclose="1" 
+    data-date-format="dd-MM-yyyy" 
+    data-min-date="{{ minToDate }}" 
+    data-max-date="{{ maxToDate }}" > -->
+
+<form name="myForm">
+    <!-- <input type="text" size="8" ng-model="formData.start" name="start" max-duration="{{ '00:50:00' }}" data-time-format="HH:mm:ss" data-time-type="string" data-autoclose="0" data-minute-step="1" data-minute-step="1" data-second-step="1" data-round-display="false" required bs-timepicker>
+
+    <input type="text" size="8" ng-model="formData.end" name="end" min-duration="{{ formData.start }}" max-duration="{{ '00:50:00' }}" data-time-format="HH:mm:ss" data-time-type="string" data-autoclose="0" data-minute-step="1" data-minute-step="1" data-second-step="1" data-round-display="false" required bs-timepicker> -->
+
+    <input type="text" size="8" ng-model="formData.start" name="start" data-time-format="HH:mm:ss" data-time-type="string" data-autoclose="0" data-minute-step="1" data-minute-step="1" data-second-step="1" data-round-display="false" required bs-timepicker>
+
+    <input type="text" size="8" ng-model="formData.end" name="end" data-time-format="HH:mm:ss" data-time-type="string" data-autoclose="0" data-minute-step="1" data-minute-step="1" data-second-step="1" data-round-display="false" required bs-timepicker>
+
+    
+</form>
+<pre>{{ formData | json }}</pre>
+<pre>date : {{ myForm.$error.date }}</pre>
+<pre>required : {{ myForm.$error.required }}</pre>
+<pre>start : {{ myForm.$error.minDate }}</pre>
+<pre>end : {{ myForm.$error.maxDate }}</pre>
+
+<!-- <pre>over maxduration : {{ myForm.$error.maxDuration }}</pre>
+<pre>over minDuration : {{ myForm.$error.minDuration }}</pre> -->
+
+<!-- data-min-time="00:00:00" data-max-time="24:00:00" -->
 
 
-  <div class="dropdown" id="mark">
-    <a id="dLabel" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-      Dropdown trigger
-      <span class="caret"></span>
-    </a>
-  
-    <ul class="dropdown-menu" aria-labelledby="dLabel">
-      <li>1</li>
-      <li>2</li>
-      <li>3</li>
-      <li>4</li>
-    </ul>
-  </div>
-  
+
+
+
+<!-- <input type="text" ng-click="opened = true" class="form-control" uib-datepicker-popup="dd-MM-yyyy" ng-model="date" 
+    datepicker-options="{ showWeeks : false, maxDate : maxDate, initDate : initDate }" is-open="opened" show-button-bar="false" />
+    <pre>{{ array | json }}</pre>
+    <form name="myForm" novalidate >
+      <div ng-form="subForm{{ $index }}" ng-repeat="object in array" >
+          <input ng-model="object.name" type="email" name="name" required >
+          
+      </div>
+    </form>
+
+    ggc input : <input type="text" ng-model="kknd[0].name" />
+ 
+     <pre>{{ myForm | json }}</pre> -->
+
 
 
 <!-- <div ng-click="go()" >gogo</div> -->
