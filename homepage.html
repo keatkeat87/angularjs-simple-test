@@ -1,82 +1,9 @@
-<!-- <form ng-submit="submit()" name="myForm" class="my-form">
-    userType: <input name="input"
-        ng-model="user.name"
-        required>
-    <span class="error" ng-show="myForm.input.$error.required">Required!</span><br>
-    <code>userType = {{userType}}</code><br>
-    <code>myForm.input.$valid = {{myForm.input.$valid}}</code><br>
-    <code>myForm.input.$error = {{myForm.input.$error}}</code><br>
-    <code>myForm.$valid = {{myForm.$valid}}</code><br>
-    <code>myForm.$error.required = {{!!myForm.$error.required}}</code><br>
- 
-    <div grecaptcha ng-model="user.token" required name="grecaptcha" ></div>
-    <code>myForm.grecaptcha.$error = {{myForm.grecaptcha.$error}}</code><br>
-
-    {{ user | json }}
-
-    <input type="number" name="dada" ng-model="user.value" min="0" max="99" required>
-
-
-
-    <button > submit</button>
-</form> -->
-
-
-<!-- <input type="text" class="form-control" ng-model="date" ng-change="onToDateChange()" name="To_Date" 
-    bs-datepicker 
-    data-autoclose="1" 
-    data-date-format="dd-MM-yyyy" 
-    data-min-date="{{ minToDate }}" 
-    data-max-date="{{ maxToDate }}" > -->
-
-<form name="myForm">
-    <input type="text" size="8" ng-model="formData.start" name="start" max-duration="{{ '00:50:00' }}" data-time-format="HH:mm:ss" data-time-type="string" data-autoclose="0" data-minute-step="1" data-minute-step="1" data-second-step="1" data-round-display="false" required bs-timepicker>
-
-    <input type="text" size="8" ng-model="formData.end" name="end" min-duration="{{ formData.start }}" max-duration="{{ '00:50:00' }}" data-time-format="HH:mm:ss" data-time-type="string" data-autoclose="0" data-minute-step="1" data-minute-step="1" data-second-step="1" data-round-display="false" required bs-timepicker>
-
-    <!-- <input type="text" size="8" ng-model="formData.start" name="start" data-min-time="now" data-time-format="HH:mm:ss" data-time-type="string" data-autoclose="0" data-minute-step="1" data-minute-step="1" data-second-step="1" data-round-display="false" required bs-timepicker>
-
-    <input type="text" size="8" ng-model="formData.end" name="end" data-time-format="HH:mm:ss" data-time-type="string" data-autoclose="0" data-minute-step="1" data-minute-step="1" data-second-step="1" data-round-display="false" required bs-timepicker> -->
-    
-</form>
-<pre>{{ formData | json }}</pre>
-<pre>date : {{ myForm.$error.date }}</pre>
-<pre>required : {{ myForm.$error.required }}</pre>
-<pre>start : {{ myForm.$error.minDate }}</pre>
-<pre>end : {{ myForm.$error.maxDate }}</pre>
-
-<!-- <pre>over maxduration : {{ myForm.$error.maxDuration }}</pre>
-<pre>over minDuration : {{ myForm.$error.minDuration }}</pre> -->
-
-<!-- data-min-time="00:00:00" data-max-time="24:00:00" -->
-
-
-
-
-
-<!-- <input type="text" ng-click="opened = true" class="form-control" uib-datepicker-popup="dd-MM-yyyy" ng-model="date" 
-    datepicker-options="{ showWeeks : false, maxDate : maxDate, initDate : initDate }" is-open="opened" show-button-bar="false" />
-    <pre>{{ array | json }}</pre>
-    <form name="myForm" novalidate >
-      <div ng-form="subForm{{ $index }}" ng-repeat="object in array" >
-          <input ng-model="object.name" type="email" name="name" required >
-          
-      </div>
-    </form>
-
-    ggc input : <input type="text" ng-model="kknd[0].name" />
- 
-     <pre>{{ myForm | json }}</pre> -->
-
-
-
-<!-- <div ng-click="go()" >gogo</div> -->
-
-
-{{clicked}}
-<p class="recTitle ellipsis" ng-class="{'ellipsis': clicked }" >{{item.RecTitle}}</p>
-<span ng-click="clicked = true" class="readMore">true</span>
-<span ng-click="clicked = false" class="readMore">false</span>
- 
- <div class="readMore" read-more ></div>
-
+<p>Selected: {{country | json}}</p> 
+<!-- ngModel 一定要是一个对象, 不知道为什么 -->
+<ui-select ng-model="country.selected" theme="selectize" style="width: 300px;" title="Choose a country">
+  <ui-select-match placeholder="Select or search a country in the list...">{{$select.selected.name}}</ui-select-match>
+  <ui-select-choices repeat="country.code as country in countries | filter: $select.search">
+    <span ng-bind-html="country.name | highlight: $select.search"></span>
+    <small ng-bind-html="country.code | highlight: $select.search"></small>
+  </ui-select-choices>
+</ui-select>
