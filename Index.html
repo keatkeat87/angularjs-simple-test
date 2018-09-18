@@ -11,35 +11,19 @@
     <title>Document</title>
     <link href="css/bootstrap-3.3.7.css" rel="stylesheet">
     <link href="css/ui-select.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.8.5/css/selectize.default.css">
-    <style>
-        body {
-            padding: 15px;
-        }
 
-        .select2 > .select2-choice.ui-select-match {
-            /* Because of the inclusion of Bootstrap */
-            height: 29px;
-        }
-
-        .selectize-control > .selectize-dropdown {
-            top: 36px;
-        }
-        /* Some additional styling to demonstrate that append-to-body helps achieve the proper z-index layering. */
-        .select-box {
-          background: #fff;
-          position: relative;
-          z-index: 1;
-        }
-        .alert-info.positioned {
-          margin-top: 1em;
-          position: relative;
-          z-index: 10000; /* The select2 dropdown has a z-index of 9999 */
-        }
-    </style>
 </head>
 
 <body>
+    <a ui-sref="main">main</a> 
+    <a ui-sref="ajax">ajax</a> 
+
+    <div ui-sref-active="active">
+        <a ui-sref="married">married</a> 
+        <a ui-sref="married.child" ui-sref-active="active">married.child</a> 
+        <a ui-sref="married.childTwo" ui-sref-active="active">married.childTwo</a> 
+    </div>
+
     <div ui-view></div>
  
     <script src="js/jquery3.min.js"></script> 

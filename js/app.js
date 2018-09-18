@@ -458,6 +458,14 @@
 
                 }
             })
+            .state('married.child', {
+                url: '/child',
+                templateUrl: 'married-child.html',
+            })
+            .state('married.childTwo', {
+                url: '/child-two',
+                templateUrl: 'married-child-two.html',
+            })
             .state('credit-card', {
                 url: '/credit-card',
                 templateUrl: 'credit-card.html',
