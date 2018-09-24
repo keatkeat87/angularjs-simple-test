@@ -419,6 +419,7 @@
                 templateUrl: 'married.html',
                 controller: function ($scope, $state) {
 
+                    $scope.param1 = 'param2';
                     $scope.minToDate = null;
                     $scope.maxToDate = null;
 
@@ -459,12 +460,32 @@
                 }
             })
             .state('married.child', {
-                url: '/child',
+                url: '/child?param1,a,b',
                 templateUrl: 'married-child.html',
+                params: {
+                    param1: null,
+                    a:null,
+                    b:null
+                },
+                controller: function ($scope,$state) {
+                    $scope.changeState = function () {
+                        $state.go('married.childTwo', {a:1, b:2},{inherit:false});
+                      };
+                }
             })
             .state('married.childTwo', {
-                url: '/child-two',
+                url: '/child-two?param1,a,b',
                 templateUrl: 'married-child-two.html',
+                params: {
+                    param1: null,
+                    a:null,
+                    b:null
+                },
+                controller: function ($scope,$state) {
+                    $scope.changeState = function () {
+                        $state.go('married.child', {a:1, b:2},{inherit:false});
+                      };
+                }
             })
             .state('credit-card', {
                 url: '/credit-card',
@@ -481,7 +502,9 @@
                     // };
 
                 }
-            });
+            })
+
+        
 
     });
 

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible"
+        content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="/js/jquery3.min.js"></script>
+    <script>
+        $(function () {
+            $.ajax({
+                url: "/data/KLC-question.json",
+                context: document.body
+            }).done(function (res) {
+                console.log(res)
+                var datas = res.data;
+                var answers = [];
+                var phoneticSymbols = [];
+                var asSkills = [];
+                var skills = [];
+                var tags = [];
+                for (i = 0; i < datas.length; i++) { 
+                    answers.push(datas[i][0]);
+                    phoneticSymbols.push(datas[i][1]);
+                    asSkills.push(datas[i][2]);
+                    skills.push(datas[i][3]);
+                    tags.push(datas[i][4]);
+                }
+
+                var tempAnswerCheckList = [];
+                for (j = 0; j < answers.length; j++) { 
+                    if(tempAnswerCheckList.indexOf(answers[j]) > -1){
+                        //console.log('同字多音 ： ', answers[j], 'index ' + tempAnswerCheckList.indexOf(answers[j]) + ' ' + j)
+                    }
+                    else{
+                        tempAnswerCheckList.push(answers[j]);
+                    }
+                }
+                // console.log('tempAnswerCheckList');
+                // console.log(tempAnswerCheckList);
+
+                var distintPhonecticSymbols = [];
+                for (k = 0; k < phoneticSymbols.length; k++) { 
+                    var value = phoneticSymbols[k];
+                    if(distintPhonecticSymbols.indexOf(value) > -1){
+                        //console.log('同音多字 : ', value, 'index ' + distintPhonecticSymbols.indexOf(value) + ' ' + k)
+                    }
+                    else if(value != ""){
+                        distintPhonecticSymbols.push(value);
+                    }
+                }
+                console.log('distintPhonecticSymbols length ' + distintPhonecticSymbols.length);
+                //console.log(distintPhonecticSymbols);
+              
+                var distintAsSkills = [];
+                for (l = 0; l < asSkills.length; l++) { 
+                    var value = asSkills[l];
+                    if(distintAsSkills.indexOf(value) > -1){
+                        //console.log('as skill : ', value, 'index ' + distintAsSkills.indexOf(value) + ' ' + l)
+                    }
+                    else if(value != ""){
+                        distintAsSkills.push(value);
+                    }
+                }
+                console.log('distintAsSkills length ' + distintAsSkills.length);
+                //console.log(distintAsSkills);
+
+                var distintSkills = [];
+                for (m = 0; m < skills.length; m++) { 
+                    var splitSkills = skills[m].split(' , ');
+
+                    for (n = 0; n < splitSkills.length; n++) { 
+                        var value = splitSkills[n];
+                        if(distintSkills.map(function(e) { return e.value; }).indexOf(value) == -1){
+                            if(value.substring(0, 1) == ' ' || value.substring(value.length - 1, value.length) == ' '){
+                                console.log('problem got space ' + m)
+                            }
+                            distintSkills.push({ index : m, value : value });
+                        }
+                    }
+                }
+                console.log('distintSkills length ' + distintSkills.length);
+                //console.log(distintSkills);
+
+                for (o = 0; o < distintSkills.length; o++) { 
+                    var value = distintSkills[o].value;
+                    var index = distintSkills[o].index;
+                    if(distintAsSkills.indexOf(value) == -1){
+                        console.log('no listing in skill list : ' + value + ' index : ' + index)
+                    }
+                }    
+
+                var distintTags = [];
+                for (p = 0; p < tags.length; p++) { 
+                    var splitTags = tags[p].split(' , ');
+                    for (q = 0; q < splitTags.length; q++) { 
+                        var value = splitTags[q];
+                        if(distintTags.indexOf(value) > -1){
+                            //console.log('同字多音 ： ', answers[j], 'index ' + tempAnswerCheckList.indexOf(answers[j]) + ' ' + j)
+                        }
+                        else{
+                            distintTags.push(value);
+                        }
+                    }
+                }
+                console.log('distintTags length ' + distintTags.length);
+                //console.log(distintTags);
+
+                console.log('total question ' + datas.length);
+               
+            });
+        });
+    </script>
+</body>
+
+</html>
