@@ -25,25 +25,47 @@
                 var asSkills = [];
                 var skills = [];
                 var tags = [];
+                var studentBrains = [];
                 for (i = 0; i < datas.length; i++) { 
                     answers.push(datas[i][0]);
                     phoneticSymbols.push(datas[i][1]);
                     asSkills.push(datas[i][2]);
                     skills.push(datas[i][3]);
                     tags.push(datas[i][4]);
-                }
+                    
+                    var splitsAsSkills = datas[i][2].split(' , ');
+                    for (y = 0; y < splitsAsSkills.length; y++) { 
+                        var value = splitsAsSkills[y];
+                        if(studentBrains.indexOf(value) == -1 && value){
+                            studentBrains.push(value);
+                        }
+                    }
 
-                var tempAnswerCheckList = [];
+                    var splitsSkills = datas[i][3].split(' , ');
+                    for (x = 0; x < splitsSkills.length; x++) { 
+                        var value = splitsSkills[x];
+                        if(studentBrains.indexOf(value) == -1){
+                            console.log('问题经过顺序后，系统还是没办法出问题，因为没有skill : ' + value + ' index : ' + i)
+                        }
+                    }
+
+                    if(datas[i][1] != "" && datas[i][4] != 'sound'){
+                        console.log('phonetic symbol tag is no sound, index is : ' + i);
+                    }
+                }
+                //console.log(studentBrains)
+
+                var distintAnswers = [];
                 for (j = 0; j < answers.length; j++) { 
-                    if(tempAnswerCheckList.indexOf(answers[j]) > -1){
-                        //console.log('同字多音 ： ', answers[j], 'index ' + tempAnswerCheckList.indexOf(answers[j]) + ' ' + j)
+                    if(distintAnswers.indexOf(answers[j]) > -1){
+                        //console.log('同字多音 ： ', answers[j], 'index ' + distintAnswers.indexOf(answers[j]) + ' ' + j)
                     }
                     else{
-                        tempAnswerCheckList.push(answers[j]);
+                        distintAnswers.push(answers[j].toLowerCase());
                     }
                 }
-                // console.log('tempAnswerCheckList');
-                // console.log(tempAnswerCheckList);
+                console.log('distintAnswers length ' + distintAnswers.length);
+                //console.log(distintAnswers);
 
                 var distintPhonecticSymbols = [];
                 for (k = 0; k < phoneticSymbols.length; k++) { 
@@ -56,16 +78,19 @@
                     }
                 }
                 console.log('distintPhonecticSymbols length ' + distintPhonecticSymbols.length);
-                //console.log(distintPhonecticSymbols);
+                console.log(distintPhonecticSymbols);
               
                 var distintAsSkills = [];
                 for (l = 0; l < asSkills.length; l++) { 
-                    var value = asSkills[l];
-                    if(distintAsSkills.indexOf(value) > -1){
-                        //console.log('as skill : ', value, 'index ' + distintAsSkills.indexOf(value) + ' ' + l)
-                    }
-                    else if(value != ""){
-                        distintAsSkills.push(value);
+                    var splitSkills = asSkills[l].split(' , ');
+                    for (z = 0; z < splitSkills.length; z++) { 
+                        var value = splitSkills[z];
+                        if(distintAsSkills.map(function(e) { return e.value; }).indexOf(value) == -1 && value){
+                            distintAsSkills.push({ index : l, value : value });
+                        }
+                        else{
+                            //console.log('as skill : ', value, 'index ' + distintAsSkills.map(function(e) { return e.value; }).indexOf(value))
+                        }
                     }
                 }
                 console.log('distintAsSkills length ' + distintAsSkills.length);
@@ -74,14 +99,28 @@
                 var distintSkills = [];
                 for (m = 0; m < skills.length; m++) { 
                     var splitSkills = skills[m].split(' , ');
+                    var cache = {};
 
+                    for (n = 0; n < splitSkills.length; n++) {
+                    } 
                     for (n = 0; n < splitSkills.length; n++) { 
                         var value = splitSkills[n];
-                        if(distintSkills.map(function(e) { return e.value; }).indexOf(value) == -1){
-                            if(value.substring(0, 1) == ' ' || value.substring(value.length - 1, value.length) == ' '){
-                                console.log('problem got space ' + m)
-                            }
+                        //check single answer skill duplicate
+                        if (cache[value]) {
+                            console.log('single answer skill duplicate ' + value + ' index ' + (m + 2));
+                        }
+                        else {
+                            cache[value] = true;
+                        } 
+
+                        if(distintSkills.map(function(e) { return e.value; }).indexOf(value) == -1 && value){
+                            // if(value.substring(0, 1) == ' ' || value.substring(value.length - 1, value.length) == ' '){
+                            //     console.log('problem got space ' + m)
+                            // }
                             distintSkills.push({ index : m, value : value });
+                        }
+                        else{
+                            //console.log('skills : ', value, 'index ' + distintSkills.map(function(e) { return e.value; }).indexOf(value))
                         }
                     }
                 }
@@ -91,8 +130,11 @@
                 for (o = 0; o < distintSkills.length; o++) { 
                     var value = distintSkills[o].value;
                     var index = distintSkills[o].index;
-                    if(distintAsSkills.indexOf(value) == -1){
+                    if(distintAsSkills.map(function(e) { return e.value; }).indexOf(value) == -1){
                         console.log('no listing in skill list : ' + value + ' index : ' + index)
+                    }
+                    else{
+
                     }
                 }    
 
@@ -102,7 +144,7 @@
                     for (q = 0; q < splitTags.length; q++) { 
                         var value = splitTags[q];
                         if(distintTags.indexOf(value) > -1){
-                            //console.log('同字多音 ： ', answers[j], 'index ' + tempAnswerCheckList.indexOf(answers[j]) + ' ' + j)
+                            //console.log('同字多音 ： ', answers[j], 'index ' + distintAnswers.indexOf(answers[j]) + ' ' + j)
                         }
                         else{
                             distintTags.push(value);
